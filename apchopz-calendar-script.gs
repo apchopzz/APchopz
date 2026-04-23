@@ -1,0 +1,103 @@
+// ================================================================
+// APchopz Booking System — Google Apps Script Backend
+// ================================================================
+// SETUP (do this once):
+// 1. Go to script.google.com → New Project
+// 2. Paste this entire file into the editor
+// 3. Change TIMEZONE below to your local timezone
+// 4. Click Deploy → New Deployment → Web App
+//    - Execute as: Me
+//    - Who has access: Anyone
+// 5. Copy the Web App URL
+// 6. Open apchopz-booking.html and paste the URL into SCRIPT_URL
+// ================================================================
+
+const TIMEZONE = 'America/New_York'; // ← Change to your timezone
+
+// ── GET: fetch available slots ────────────────────────────────
+function doGet(e) {
+  const date     = e.parameter.date;
+  const duration = parseInt(e.parameter.duration) || 30;
+
+  if (!date) return json({ error: 'Date required' });
+
+  const slots = getAvailableSlots(date, duration);
+  return json({ slots: slots });
+}
+
+// ── POST: create a booking ────────────────────────────────────
+function doPost(e) {
+  try {
+    const d = JSON.parse(e.postData.contents);
+    return createBooking(d);
+  } catch (err) {
+    return json({ success: false, error: err.message });
+  }
+}
+
+// ── Core: available slot calculator ──────────────────────────
+function getAvailableSlots(dateStr, durationMin) {
+  const cal      = CalendarApp.getDefaultCalendar();
+  const dayStart = new Date(dateStr + 'T00:00:00');
+  const dayEnd   = new Date(dateStr + 'T23:59:59');
+  const events   = cal.getEvents(dayStart, dayEnd);
+
+  const open  = new Date(dateStr + 'T12:00:00'); // 12 PM
+  const close = new Date(dateStr + 'T19:00:00'); // 7 PM
+  const slots = [];
+  let current = new Date(open);
+
+  while (current < close) {
+    const slotEnd = new Date(current.getTime() + durationMin * 60000);
+    if (slotEnd > close) break;
+
+    let free = true;
+    for (const ev of events) {
+      if (current < ev.getEndTime() && slotEnd > ev.getStartTime()) {
+        free = false;
+        break;
+      }
+    }
+
+    if (free) {
+      slots.push(Utilities.formatDate(current, TIMEZONE, "yyyy-MM-dd'T'HH:mm:ss"));
+    }
+
+    current = new Date(current.getTime() + 15 * 60000); // +15 min
+  }
+
+  return slots;
+}
+
+// ── Core: create calendar event ───────────────────────────────
+function createBooking(d) {
+  const cal       = CalendarApp.getDefaultCalendar();
+  const startTime = new Date(d.startTime);
+  const endTime   = new Date(startTime.getTime() + d.duration * 60000);
+
+  // Re-check availability before creating
+  const conflicts = cal.getEvents(startTime, endTime);
+  if (conflicts.length > 0) {
+    return json({ success: false, error: 'That slot was just taken. Please pick another time.' });
+  }
+
+  const title = `✂️ APchopz — ${d.service} (${d.firstName} ${d.lastName})`;
+  const desc  = [
+    `👤 ${d.firstName} ${d.lastName}`,
+    `📱 ${d.phone}`,
+    d.email  ? `✉️  ${d.email}`           : null,
+    `✂️  ${d.service} · ${d.duration} min`,
+    d.notes  ? `📝 ${d.notes}`            : null,
+    d.source ? `📣 Heard via: ${d.source}` : null,
+  ].filter(Boolean).join('\n');
+
+  cal.createEvent(title, startTime, endTime, { description: desc });
+  return json({ success: true });
+}
+
+// ── Helper ────────────────────────────────────────────────────
+function json(data) {
+  return ContentService
+    .createTextOutput(JSON.stringify(data))
+    .setMimeType(ContentService.MimeType.JSON);
+}

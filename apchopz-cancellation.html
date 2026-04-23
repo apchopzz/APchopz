@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cancellation Policy | APchopz Barber Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --black:#0a0a0a; --dark:#111111; --card:#161616; --border:#222222; --gold:#c9a84c; --white:#f5f5f5; --gray:#777777; --light-gray:#aaaaaa; }
+    body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); }
+
+    nav { display:flex; align-items:center; justify-content:space-between; padding:20px 60px; border-bottom:1px solid var(--border); }
+    .logo { text-decoration:none; display:flex; align-items:center; }
+    .logo img { height:40px; width:auto; object-fit:contain; }
+    .logo-fallback { font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:3px; color:var(--gold); display:none; }
+    .nav-back { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); text-decoration:none; transition:color 0.2s; }
+    .nav-back:hover { color:var(--gold); }
+
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
+    .page-tag { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+    .page-title { font-family:'Bebas Neue',sans-serif; font-size:56px; letter-spacing:2px; margin-bottom:8px; line-height:1; }
+    .page-date { font-size:13px; color:var(--gray); margin-bottom:48px; }
+    .divider { width:40px; height:2px; background:var(--gold); margin-bottom:16px; }
+
+    .section { margin-bottom:48px; }
+    .section h2 { font-size:18px; font-weight:600; color:var(--white); margin-bottom:14px; }
+    .section p { font-size:15px; color:var(--light-gray); line-height:1.85; margin-bottom:14px; font-weight:300; }
+    .section ul { list-style:none; padding:0; }
+    .section ul li { font-size:15px; color:var(--light-gray); line-height:1.85; padding:6px 0 6px 20px; position:relative; font-weight:300; }
+    .section ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+
+    .policy-cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px; }
+    .policy-card { background:var(--card); border:1px solid var(--border); padding:28px 24px; }
+    .policy-card-label { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+    .policy-card-title { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:1px; margin-bottom:8px; }
+    .policy-card p { font-size:13px; color:var(--light-gray); line-height:1.7; font-weight:300; }
+
+    .highlight-box { background:var(--card); border-left:3px solid var(--gold); padding:24px 28px; margin:32px 0; }
+    .highlight-box p { font-size:15px; color:var(--light-gray); line-height:1.8; font-weight:300; }
+
+    .contact-box { background:var(--card); border:1px solid var(--border); padding:32px; margin-top:48px; }
+    .contact-box p { font-size:14px; color:var(--light-gray); line-height:1.8; }
+    .contact-box a { color:var(--gold); text-decoration:none; }
+
+    footer { border-top:1px solid var(--border); padding:32px 60px; display:flex; justify-content:space-between; align-items:center; }
+    .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:3px; color:var(--gold); }
+    .footer-links { display:flex; gap:24px; }
+    .footer-links a { font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--gray); text-decoration:none; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--gold); }
+
+    @media (max-width:600px) {
+      nav { padding:16px 20px; }
+      .policy-cards { grid-template-columns:1fr; }
+      footer { padding:24px 20px; flex-direction:column; gap:16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="apchopz.html" class="logo">
+    <img src="apchopz-logo-icon.png" alt="APchopz" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span class="logo-fallback">APchopz</span>
+  </a>
+  <a href="apchopz.html" class="nav-back">← Back to site</a>
+</nav>
+
+<div class="page">
+  <div class="divider"></div>
+  <div class="page-tag">Legal</div>
+  <div class="page-title">Cancellation Policy</div>
+  <div class="page-date">Last updated: April 2026</div>
+
+  <div class="section">
+    <p>Out of respect for everyone's time, please read the following policy before booking. By scheduling an appointment with APchopz, you agree to these terms.</p>
+  </div>
+
+  <div class="section">
+    <h2>Cancellations & Rescheduling</h2>
+    <div class="policy-cards">
+      <div class="policy-card">
+        <div class="policy-card-label">No charge</div>
+        <div class="policy-card-title">24+ Hours</div>
+        <p>Cancel or reschedule at least 24 hours before your appointment and there's no issue — just reach out and we'll sort a new time.</p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-card-label">Late notice</div>
+        <div class="policy-card-title">Under 24 Hours</div>
+        <p>Cancellations with less than 24 hours notice may result in a fee for future bookings. Life happens — just communicate early.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>No-Shows</h2>
+    <p>If you don't show up and don't reach out, that appointment slot is gone and can't be given to someone else. After a no-show:</p>
+    <ul>
+      <li>You'll be required to prepay before booking future appointments</li>
+      <li>Repeat no-shows may result in being unable to book</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Late Arrivals</h2>
+    <p>If you're running late, just text me. I'll do my best to accommodate you. Arriving more than 15 minutes late may result in a shortened service or rescheduling, depending on the schedule that day.</p>
+  </div>
+
+  <div class="section">
+    <h2>Satisfaction</h2>
+    <div class="highlight-box">
+      <p>If you're not happy with your cut, speak up before you leave the chair. I'll do everything I can to make it right on the spot. Refunds are not offered once you've left the studio, but your satisfaction matters — so let's fix it in person.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How to Cancel or Reschedule</h2>
+    <p>The easiest way is to text me directly. You can also reach out on Instagram. Please don't just not show up — a quick message goes a long way.</p>
+  </div>
+
+  <div class="contact-box">
+    <p>Need to cancel or have a question?<br/><br/>
+    <strong style="color:var(--white)">APchopz Barber Studio</strong><br/>
+    Instagram: <a href="https://instagram.com/apchopz" target="_blank">@apchopz</a><br/>
+    Email: <a href="mailto:apoitevien19@gmail.com">apoitevien19@gmail.com</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">APchopz</div>
+  <div class="footer-links">
+    <a href="apchopz.html">Home</a>
+    <a href="apchopz-booking.html">Book</a>
+    <a href="apchopz-privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
