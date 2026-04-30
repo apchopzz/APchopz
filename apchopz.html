@@ -29,7 +29,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -43,54 +42,16 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .logo img {
-      height: 44px;
-      width: auto;
-      object-fit: contain;
-    }
+    .logo img { height: 44px; width: auto; object-fit: contain; }
+    .logo-fallback { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--gold); display: none; }
 
-    .logo-fallback {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 3px;
-      color: var(--gold);
-      display: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--light-gray);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--light-gray); font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold); }
 
-    .nav-cta {
-      background: var(--gold);
-      color: var(--black);
-      padding: 10px 24px;
-      border-radius: 2px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
+    .nav-cta { background: var(--gold); color: var(--black); padding: 10px 24px; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
     .nav-cta:hover { background: var(--gold-light); }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -118,515 +79,81 @@
       white-space: nowrap;
     }
 
-    .hero-tag {
-      display: inline-block;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 6px 16px;
-      border-radius: 2px;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(64px, 12vw, 140px);
-      line-height: 0.9;
-      letter-spacing: 4px;
-      color: var(--white);
-      margin-bottom: 24px;
-    }
-
+    .hero-tag { display: inline-block; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 6px 16px; border-radius: 2px; margin-bottom: 28px; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 12vw, 140px); line-height: 0.9; letter-spacing: 4px; color: var(--white); margin-bottom: 24px; }
     .hero h1 span { color: var(--gold); }
+    .hero p { font-size: 16px; color: var(--gray); max-width: 400px; margin: 0 auto 44px; line-height: 1.7; font-weight: 300; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    .hero p {
-      font-size: 16px;
-      color: var(--gray);
-      max-width: 400px;
-      margin: 0 auto 44px;
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--black);
-      padding: 14px 36px;
-      border-radius: 2px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-
+    .btn-primary { background: var(--gold); color: var(--black); padding: 14px 36px; border-radius: 2px; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.2s; }
     .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--light-gray);
-      padding: 14px 36px;
-      border-radius: 2px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
+    .btn-outline { border: 1px solid var(--border); color: var(--light-gray); padding: 14px 36px; border-radius: 2px; font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-    .scroll-line {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: var(--gray);
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
+    .scroll-line { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--gray); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; }
+    .scroll-line::after { content: ''; width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); }
 
-    .scroll-line::after {
-      content: '';
-      width: 1px;
-      height: 50px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-    }
-
-    /* SECTIONS */
     section { padding: 100px 60px; }
+    .section-label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); letter-spacing: 2px; line-height: 1; margin-bottom: 60px; }
+    .divider { width: 48px; height: 2px; background: var(--gold); margin-bottom: 20px; }
 
-    .section-label {
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(40px, 6vw, 72px);
-      letter-spacing: 2px;
-      line-height: 1;
-      margin-bottom: 60px;
-    }
-
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    /* GALLERY */
     #gallery { background: var(--dark); }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2px;
-    }
-
-    .gallery-item {
-      aspect-ratio: 1;
-      background: var(--card);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2px; }
+    .gallery-item { aspect-ratio: 1; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.3s; }
     .gallery-item:hover { transform: scale(1.02); }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
     .gallery-item:hover img { transform: scale(1.05); }
-
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(201,168,76,0.08);
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
+    .gallery-overlay { position: absolute; inset: 0; background: rgba(201,168,76,0.08); opacity: 0; transition: opacity 0.3s; }
     .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-label { position: absolute; bottom: 12px; left: 12px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
 
-    .gallery-label {
-      position: absolute;
-      bottom: 12px;
-      left: 12px;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gray);
-    }
-
-    .gallery-note {
-      margin-top: 24px;
-      font-size: 13px;
-      color: var(--gray);
-      font-style: italic;
-    }
-
-    /* SERVICES */
     #services { background: var(--black); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .service-card {
-      background: var(--card);
-      padding: 40px 32px;
-      transition: background 0.2s;
-      position: relative;
-    }
-
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .service-card { background: var(--card); padding: 40px 32px; transition: background 0.2s; position: relative; }
     .service-card:hover { background: #1a1a1a; }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 0;
-      background: var(--gold);
-      transition: height 0.3s;
-    }
-
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.3s; }
     .service-card:hover::before { height: 100%; }
+    .service-icon { font-size: 28px; margin-bottom: 16px; }
+    .service-name { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--white); }
+    .service-desc { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
+    .service-price { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); letter-spacing: 1px; }
 
-    .service-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-
-    .service-name {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--white);
-    }
-
-    .service-desc {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .service-price {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      color: var(--gold);
-      letter-spacing: 1px;
-    }
-
-    /* ABOUT */
     #about { background: var(--dark); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-image {
-      aspect-ratio: 3/4;
-      background: var(--card);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .about-image::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      right: -12px;
-      width: 100%;
-      height: 100%;
-      border: 1px solid var(--gold);
-      z-index: -1;
-    }
-
-    .about-image .placeholder-icon { font-size: 64px; opacity: 0.1; }
-
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-image { aspect-ratio: 3/4; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; }
+    .about-image::after { content: ''; position: absolute; bottom: -12px; right: -12px; width: 100%; height: 100%; border: 1px solid var(--gold); z-index: -1; }
     .about-content .section-title { margin-bottom: 24px; }
+    .about-text { font-size: 15px; color: var(--light-gray); line-height: 1.9; margin-bottom: 16px; font-weight: 300; }
+    .about-stats { display: flex; gap: 40px; margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 12px; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 
-    .about-text {
-      font-size: 15px;
-      color: var(--light-gray);
-      line-height: 1.9;
-      margin-bottom: 16px;
-      font-weight: 300;
-    }
-
-    .about-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 40px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
-    }
-
-    .stat-number {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 48px;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: var(--gray);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    /* BOOKING */
     #booking { background: var(--black); }
-
-    .booking-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
+    .booking-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .booking-info .section-title { margin-bottom: 16px; }
-
-    .booking-info p {
-      font-size: 15px;
-      color: var(--gray);
-      line-height: 1.8;
-      margin-bottom: 32px;
-      font-weight: 300;
-    }
-
+    .booking-info p { font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 32px; font-weight: 300; }
     .hours-list { list-style: none; }
-
-    .hours-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-      color: var(--light-gray);
-    }
-
+    .hours-list li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--light-gray); }
     .hours-list li span:last-child { color: var(--gold); }
+    .booking-form { background: var(--card); border: 1px solid var(--border); padding: 48px; }
 
-    .booking-form {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 48px;
-    }
-
-    .form-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      letter-spacing: 2px;
-      margin-bottom: 32px;
-    }
-
-    .form-group { margin-bottom: 20px; }
-
-    .form-group label {
-      display: block;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      background: var(--black);
-      border: 1px solid var(--border);
-      color: var(--white);
-      padding: 14px 16px;
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      border-radius: 2px;
-      transition: border-color 0.2s;
-      appearance: none;
-    }
-
-    .form-group select option { background: var(--black); }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold);
-    }
-
-    .form-group textarea { resize: vertical; min-height: 100px; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    .form-submit {
-      width: 100%;
-      background: var(--gold);
-      color: var(--black);
-      border: none;
-      padding: 16px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 2px;
-      margin-top: 8px;
-      transition: background 0.2s, transform 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-    /* CONTACT */
     #contact { background: var(--dark); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .contact-card {
-      background: var(--card);
-      padding: 48px 36px;
-      text-align: center;
-    }
-
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .contact-card { background: var(--card); padding: 48px 36px; text-align: center; }
     .contact-icon { font-size: 32px; margin-bottom: 16px; }
-
-    .contact-card h3 {
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 12px;
-    }
-
-    .contact-card p {
-      font-size: 15px;
-      color: var(--white);
-      line-height: 1.6;
-    }
-
-    .contact-card a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
+    .contact-card h3 { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 12px; }
+    .contact-card p { font-size: 15px; color: var(--white); line-height: 1.6; }
+    .contact-card a { color: var(--gold); text-decoration: none; }
     .contact-card a:hover { color: var(--gold-light); }
 
-    /* FOOTER */
-    footer {
-      background: var(--black);
-      border-top: 1px solid var(--border);
-      padding: 40px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 24px;
-      letter-spacing: 3px;
-      color: var(--gold);
-    }
-
-    .footer-text {
-      font-size: 12px;
-      color: var(--gray);
-      letter-spacing: 1px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .social-links a {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gray);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    footer { background: var(--black); border-top: 1px solid var(--border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 3px; color: var(--gold); }
+    .footer-text { font-size: 12px; color: var(--gray); letter-spacing: 1px; }
+    .social-links { display: flex; gap: 20px; }
+    .social-links a { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
     .social-links a:hover { color: var(--gold); }
 
-    /* TOAST */
-    .toast {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--gold);
-      color: var(--black);
-      padding: 16px 24px;
-      border-radius: 2px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s;
-      z-index: 999;
-    }
-
-    .toast.show { transform: translateY(0); opacity: 1; }
-
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 18px 24px; }
       .nav-links { display: none; }
@@ -636,13 +163,11 @@
       footer { flex-direction: column; gap: 16px; text-align: center; }
       .about-image::after { display: none; }
       .booking-form { padding: 32px 24px; }
-      .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="logo">
       <img src="apchopz-logo-icon.png" alt="AP Chopz" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
@@ -654,10 +179,9 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#booking" class="nav-cta">Book Now</a>
+    <a href="apchopz-booking.html" class="nav-cta">Book Now</a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div>
       <img src="apchopz-logo-full.png.png" alt="AP Chopz Barber Studio"
@@ -667,91 +191,41 @@
       <h1 id="hero-title" style="display:none">AP<span>chopz</span></h1>
       <p>Sharp cuts. Clean lines. No compromises. Book your session and walk out looking different.</p>
       <div class="hero-btns">
-        <a href="#booking" class="btn-primary">Book a Session</a>
+        <a href="apchopz-booking.html" class="btn-primary">Book a Session</a>
         <a href="#gallery" class="btn-outline">View My Work</a>
       </div>
     </div>
     <div class="scroll-line">Scroll</div>
   </section>
 
-  <!-- GALLERY -->
   <section id="gallery">
     <div class="divider"></div>
     <div class="section-label">The Work</div>
     <div class="section-title">Fresh Out<br>The Chair</div>
     <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="laurent%20fade.jpeg" alt="Fade"/>
-        <div class="gallery-overlay"></div>
-        <div class="gallery-label">Fade</div>
-      </div>
-      <div class="gallery-item">
-        <img src="burst%20fade.PNG" alt="Burst Fade"/>
-        <div class="gallery-overlay"></div>
-        <div class="gallery-label">Burst Fade</div>
-      </div>
-      <div class="gallery-item">
-        <img src="slawter%20lineup.jpeg" alt="Lineup"/>
-        <div class="gallery-overlay"></div>
-        <div class="gallery-label">Lineup</div>
-      </div>
-      <div class="gallery-item">
-        <img src="miles%20mid%20taper.jpeg" alt="Mid Taper"/>
-        <div class="gallery-overlay"></div>
-        <div class="gallery-label">Mid Taper</div>
-      </div>
-      <div class="gallery-item">
-        <img src="Artin%20slickback.jpeg" alt="Slickback"/>
-        <div class="gallery-overlay"></div>
-        <div class="gallery-label">Slickback</div>
-      </div>
-      <div class="gallery-item">
-        <img src="carson%20mullet.jpeg" alt="Mullet"/>
-        <div class="gallery-overlay"></div>
-        <div class="gallery-label">Mullet</div>
-      </div>
-      <div class="gallery-item">
-        <img src="gavin%20mullet.jpeg" alt="Mullet"/>
-        <div class="gallery-overlay"></div>
-        <div class="gallery-label">Mullet</div>
-      </div>
+      <div class="gallery-item"><img src="laurent%20fade.jpeg" alt="Fade"/><div class="gallery-overlay"></div><div class="gallery-label">Fade</div></div>
+      <div class="gallery-item"><img src="burst%20fade.PNG" alt="Burst Fade"/><div class="gallery-overlay"></div><div class="gallery-label">Burst Fade</div></div>
+      <div class="gallery-item"><img src="slawter%20lineup.jpeg" alt="Lineup"/><div class="gallery-overlay"></div><div class="gallery-label">Lineup</div></div>
+      <div class="gallery-item"><img src="miles%20mid%20taper.jpeg" alt="Mid Taper"/><div class="gallery-overlay"></div><div class="gallery-label">Mid Taper</div></div>
+      <div class="gallery-item"><img src="Artin%20slickback.jpeg" alt="Slickback"/><div class="gallery-overlay"></div><div class="gallery-label">Slickback</div></div>
+      <div class="gallery-item"><img src="carson%20mullet.jpeg" alt="Mullet"/><div class="gallery-overlay"></div><div class="gallery-label">Mullet</div></div>
+      <div class="gallery-item"><img src="gavin%20mullet.jpeg" alt="Mullet"/><div class="gallery-overlay"></div><div class="gallery-label">Mullet</div></div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services">
     <div class="divider"></div>
     <div class="section-label">What I Offer</div>
     <div class="section-title">Services &<br>Pricing</div>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">✂️</div>
-        <div class="service-name">Haircut</div>
-        <div class="service-desc">Classic cut with precision fade and clean finish. Any style, any texture.</div>
-        <div class="service-price">$30</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🪒</div>
-        <div class="service-name">Lineup / Edge Up</div>
-        <div class="service-desc">Sharp edges, crisp lines. Hairline, temples, and neckline cleaned up.</div>
-        <div class="service-price">$15</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">💈</div>
-        <div class="service-name">Trim + Haircut + Lineup</div>
-        <div class="service-desc">The full package — trim, precision fade, and clean edge up.</div>
-        <div class="service-price">$35</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
-        <div class="service-name">Design / Part</div>
-        <div class="service-desc">Custom hair designs and surgical parts. Add-on to any cut.</div>
-        <div class="service-price">$10+</div>
-      </div>
+      <div class="service-card"><div class="service-icon">✂️</div><div class="service-name">Haircut</div><div class="service-desc">Classic cut with precision fade and clean finish. Any style, any texture.</div><div class="service-price">$30</div></div>
+      <div class="service-card"><div class="service-icon">🪒</div><div class="service-name">Lineup / Edge Up</div><div class="service-desc">Sharp edges, crisp lines. Hairline, temples, and neckline cleaned up.</div><div class="service-price">$15</div></div>
+      <div class="service-card"><div class="service-icon">💈</div><div class="service-name">Haircut and Beard</div><div class="service-desc">Includes trim, fade, lineup, and beard service. The full package.</div><div class="service-price">$40</div></div>
+      <div class="service-card"><div class="service-icon">🧔</div><div class="service-name">Beard Service</div><div class="service-desc">Beard fade, trim, and lineup. Clean shape-up from the neck up.</div><div class="service-price">$20</div></div>
+      <div class="service-card"><div class="service-icon">🎨</div><div class="service-name">Design / Part</div><div class="service-desc">Custom hair designs and surgical parts. Add-on to any cut.</div><div class="service-price">$10+</div></div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="about-grid">
       <div class="about-image" style="background:#0a0a0a;">
@@ -761,176 +235,78 @@
         <div class="divider"></div>
         <div class="section-label">The Barber</div>
         <div class="section-title">Who Is<br>APchopz?</div>
-        <p class="about-text">
-          My name is Alex — known in the streets as APchopz. I've been cutting hair and perfecting my craft with one goal: make every client walk out looking and feeling like the best version of themselves.
-        </p>
-        <p class="about-text">
-          Whether you're coming in for a fresh fade before a big moment or just keeping your weekly look sharp — I treat every cut like it matters. Because it does.
-        </p>
+        <p class="about-text">My name is Alex. I've been cutting hair and perfecting my craft for over 2 years with one goal: make every client walk out looking and feeling like the best version of themselves.</p>
+        <p class="about-text">As a collegiate athlete, I know confidence is everything. I want everyone to be on their game, which is why I treat every cut like it matters. Because it does.</p>
         <div class="about-stats">
-          <div>
-            <div class="stat-number">100+</div>
-            <div class="stat-label">Happy Clients</div>
-          </div>
-          <div>
-            <div class="stat-number">5★</div>
-            <div class="stat-label">Rated</div>
-          </div>
-          <div>
-            <div class="stat-number">0</div>
-            <div class="stat-label">Bad Cuts</div>
-          </div>
+          <div><div class="stat-number">100+</div><div class="stat-label">Happy Clients</div></div>
+          <div><div class="stat-number">2+</div><div class="stat-label">Years Cutting</div></div>
+          <div><div class="stat-number">5★</div><div class="stat-label">Rated</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BOOKING -->
   <section id="booking">
     <div class="booking-wrapper">
       <div class="booking-info">
         <div class="divider"></div>
         <div class="section-label">Schedule</div>
         <div class="section-title">Book Your<br>Session</div>
-        <p>Fill out the form and I'll hit you back to confirm your appointment. Simple as that.</p>
+        <p>Pick your service, choose your time, and lock it in. Takes less than a minute.</p>
         <ul class="hours-list">
-          <li><span>Monday – Friday</span><span>10am – 7pm</span></li>
-          <li><span>Saturday</span><span>9am – 6pm</span></li>
-          <li><span>Sunday</span><span>By Appointment</span></li>
+          <li><span>Monday to Friday</span><span>8am to 4pm</span></li>
+          <li><span>Saturday</span><span>9am to 9pm</span></li>
+          <li><span>Sunday</span><span>2pm to 8pm</span></li>
         </ul>
       </div>
-      <div class="booking-form">
-        <div class="form-title">Request an Appointment</div>
-        <form id="bookingForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" placeholder="Alex" required />
-            </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" placeholder="Doe" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="(555) 000-0000" required />
-          </div>
-          <div class="form-group">
-            <label>Service</label>
-            <select required>
-              <option value="" disabled selected>Select a service</option>
-              <option>Haircut – $30</option>
-              <option>Lineup / Edge Up – $15</option>
-              <option>Cut + Lineup – $40</option>
-              <option>Design / Part – $10+</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Preferred Date</label>
-              <input type="date" required />
-            </div>
-            <div class="form-group">
-              <label>Preferred Time</label>
-              <select required>
-                <option value="" disabled selected>Select time</option>
-                <option>10:00 AM</option>
-                <option>11:00 AM</option>
-                <option>12:00 PM</option>
-                <option>1:00 PM</option>
-                <option>2:00 PM</option>
-                <option>3:00 PM</option>
-                <option>4:00 PM</option>
-                <option>5:00 PM</option>
-                <option>6:00 PM</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Notes (optional)</label>
-            <textarea placeholder="Any specific requests or style references..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">Request Booking</button>
-        </form>
+      <div class="booking-form" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:320px;gap:24px;">
+        <div style="font-size:52px;">✂️</div>
+        <div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;margin-bottom:10px;">Ready to Book?</div>
+          <p style="font-size:14px;color:var(--gray);line-height:1.8;max-width:320px;margin:0 auto;">Pick your service, choose your time, and lock it in. Takes less than a minute.</p>
+        </div>
+        <a href="apchopz-booking.html" class="btn-primary" style="display:inline-block;">Book Your Session</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="divider"></div>
     <div class="section-label">Find Me</div>
     <div class="section-title">Get In Touch</div>
     <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-icon">📍</div>
-        <h3>Location</h3>
-        <p>Your City, State<br><span style="color:var(--gray);font-size:13px">Update with your address</span></p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">📱</div>
-        <h3>Phone / Text</h3>
-        <p><a href="tel:+15550000000">(555) 000-0000</a></p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">📸</div>
-        <h3>Instagram</h3>
-        <p><a href="https://instagram.com/apchopz" target="_blank">@apchopz</a></p>
-      </div>
+      <div class="contact-card"><div class="contact-icon">📍</div><h3>Location</h3><p>Guelph, Ontario<br><span style="color:var(--gray);font-size:13px">Exact address sent after booking</span></p></div>
+      <div class="contact-card"><div class="contact-icon">📱</div><h3>Phone / Text</h3><p><a href="tel:+15875824512">(587) 582-4512</a></p></div>
+      <div class="contact-card"><div class="contact-icon">📸</div><h3>Instagram</h3><p><a href="https://instagram.com/ap.chopzz" target="_blank">@ap.chopzz</a></p></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">APchopz</div>
     <div class="footer-text">© 2026 APchopz Barber Studio. All rights reserved.</div>
     <div class="social-links">
       <a href="#gallery">Work</a>
       <a href="#services">Services</a>
-      <a href="#booking">Book</a>
+      <a href="apchopz-booking.html">Book</a>
       <a href="apchopz-privacy.html">Privacy</a>
       <a href="apchopz-cancellation.html">Cancellations</a>
     </div>
   </footer>
 
-  <!-- TOAST -->
-  <div class="toast" id="toast">✓ Booking request sent!</div>
-
   <script>
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3500);
-      this.reset();
-    });
-
-    // Show fallback hero text if logo fails to load
     const heroLogo = document.querySelector('.hero img');
     if (heroLogo) {
       heroLogo.addEventListener('error', () => {
         document.getElementById('hero-tag').style.display = 'inline-block';
         document.getElementById('hero-title').style.display = 'block';
       });
-      heroLogo.addEventListener('load', () => {
-        document.getElementById('hero-tag').style.display = 'none';
-        document.getElementById('hero-title').style.display = 'none';
-      });
     }
-
-    // Smooth nav active state
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
-
     window.addEventListener('scroll', () => {
       let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
-      });
-      navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
-      });
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : ''; });
     });
   </script>
 </body>
