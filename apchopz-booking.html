@@ -288,7 +288,7 @@ calY = today.getFullYear();
 calM = today.getMonth();
 
 buildServiceCards();
-
+loadClientInfo();
 function buildServiceCards() {
   const grid = document.getElementById('services-grid');
   SERVICES.forEach(s => {
@@ -436,7 +436,7 @@ async function submitBooking() {
     notes:document.getElementById('f-notes').value.trim(),
     source:document.getElementById('f-source').value,
   };
-  try {
+  saveClientInfo();
     const res=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(data),redirect:'follow'});
     const json=await res.json();
     if (!json.success) { showToast(json.error||'Something went wrong','error'); btn.disabled=false; btn.textContent='Confirm Booking →'; return; }
@@ -475,6 +475,22 @@ function showToast(msg,type='success') {
   const t=document.getElementById('toast');
   t.textContent=msg; t.className=`toast ${type} show`;
   setTimeout(()=>t.classList.remove('show'),3500);
+}function saveClientInfo() {
+  localStorage.setItem('apchopz_firstName', document.getElementById('firstName').value);
+  localStorage.setItem('apchopz_lastName', document.getElementById('lastName').value);
+  localStorage.setItem('apchopz_phone', document.getElementById('phone').value);
+  localStorage.setItem('apchopz_email', document.getElementById('email').value);
+}
+
+function loadClientInfo() {
+  var fn = localStorage.getItem('apchopz_firstName');
+  var ln = localStorage.getItem('apchopz_lastName');
+  var ph = localStorage.getItem('apchopz_phone');
+  var em = localStorage.getItem('apchopz_email');
+  if (fn) document.getElementById('firstName').value = fn;
+  if (ln) document.getElementById('lastName').value = ln;
+  if (ph) document.getElementById('phone').value = ph;
+  if (em) document.getElementById('email').value = em;
 }
 </script>
 </body>
