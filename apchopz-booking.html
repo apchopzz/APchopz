@@ -475,22 +475,18 @@ function showToast(msg,type='success') {
   const t=document.getElementById('toast');
   t.textContent=msg; t.className=`toast ${type} show`;
   setTimeout(()=>t.classList.remove('show'),3500);
-}function saveClientInfo() {
-  localStorage.setItem('apchopz_firstName', document.getElementById('firstName').value);
-  localStorage.setItem('apchopz_lastName', document.getElementById('lastName').value);
-  localStorage.setItem('apchopz_phone', document.getElementById('phone').value);
-  localStorage.setItem('apchopz_email', document.getElementById('email').value);
-}
-
 function loadClientInfo() {
-  var fn = localStorage.getItem('apchopz_firstName');
-  var ln = localStorage.getItem('apchopz_lastName');
-  var ph = localStorage.getItem('apchopz_phone');
-  var em = localStorage.getItem('apchopz_email');
-  if (fn) document.getElementById('firstName').value = fn;
-  if (ln) document.getElementById('lastName').value = ln;
-  if (ph) document.getElementById('phone').value = ph;
-  if (em) document.getElementById('email').value = em;
+  var fields = {firstName:'apchopz_firstName', lastName:'apchopz_lastName', phone:'apchopz_phone', email:'apchopz_email'};
+  Object.keys(fields).forEach(function(id) {
+    var val = localStorage.getItem(fields[id]);
+    var el = document.getElementById('f-' + id);
+    if (val && el) el.value = val;
+  });
+}function saveClientInfo() {
+  ['firstName','lastName','phone','email'].forEach(function(id) {
+    var el = document.getElementById('f-' + id);
+    if (el) localStorage.setItem('apchopz_' + id, el.value);
+  });
 }
 </script>
 </body>
