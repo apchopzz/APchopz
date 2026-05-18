@@ -476,6 +476,7 @@ function showToast(msg,type='success') {
   const t=document.getElementById('toast');
   t.textContent=msg; t.className=`toast ${type} show`;
   setTimeout(()=>t.classList.remove('show'),3500);
+}
 function loadClientInfo() {
   var fields = {firstName:'apchopz_firstName', lastName:'apchopz_lastName', phone:'apchopz_phone', email:'apchopz_email'};
   Object.keys(fields).forEach(function(id) {
