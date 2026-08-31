@@ -161,7 +161,8 @@
     <div class="divider-line"></div>
     <div class="panel-tag">Step 2 of 4</div>
     <div class="panel-title">Date &amp; Time</div>
-    <div class="panel-sub">Mon–Fri 8AM–4PM · Sat 9AM–9PM · Sun 2PM–8PM · <span id="dur-label">—</span> session</div>
+    <div class="panel-sub">Wed 9AM–7PM · Sun 3PM–9PM · <span id="dur-label">—</span> session</div>
+    <p style="font-size:12px;color:var(--gray);margin-top:-28px;margin-bottom:28px;font-style:italic;">Need a time that's not showing? DM me — <a href="https://instagram.com/ap.chopzz" target="_blank" style="color:var(--gold);text-decoration:none;">@ap.chopzz</a></p>
     <div class="date-time-grid">
       <div class="cal-block">
         <div class="cal-header">
@@ -274,11 +275,9 @@
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvsrk7sD9rOCa0PB0WCjHXerf71h_4LjwFQfiwRXJ7238I1ztxhWU50fkwbbqcVqNB/exec';
 
 const SERVICES = [
-  { id:'haircut', name:'Haircut',            emoji:'✂️', price:30, duration:45, desc:'Precision fade or taper. Any texture.' },
-  { id:'lineup',  name:'Lineup / Edge Up',   emoji:'🪒', price:15, duration:20, desc:'Sharp edges. Hairline, temples, neckline.' },
-  { id:'full',    name:'Haircut and Beard',  emoji:'💈', price:40, duration:60, desc:'Includes trim, fade, lineup, and beard service.' },
-  { id:'beard',   name:'Beard Service',      emoji:'🧔', price:20, duration:20, desc:'Beard fade, trim, and lineup.' },
-  { id:'design',  name:'Design / Part',      emoji:'🎨', price:10, duration:15, desc:'Custom designs. Add-on to any cut.' },
+  { id:'haircut', name:'Haircut',          emoji:'✂️', price:40, duration:40, desc:'Precision fade or taper. Beard lineup included.' },
+  { id:'lineup',  name:'Lineup / Edge Up', emoji:'🪒', price:20, duration:20, desc:'Sharp edges. Hairline, temples, neckline.' },
+  { id:'beard',   name:'Beard Service',    emoji:'🧔', price:20, duration:20, desc:'Beard fade, trim, and lineup.' },
 ];
 
 let state = { service:null, price:null, duration:null, date:null, time:null };
@@ -294,7 +293,7 @@ function buildServiceCards() {
   SERVICES.forEach(s => {
     const el = document.createElement('div');
     el.className = 'svc';
-    el.innerHTML = `<div class="svc-emoji">${s.emoji}</div><div class="svc-name">${s.name}</div><div class="svc-dur">${s.duration} min · ${s.desc}</div><div class="svc-price">$${s.price}${s.id==='design'?'+':''}</div>`;
+    el.innerHTML = `<div class="svc-emoji">${s.emoji}</div><div class="svc-name">${s.name}</div><div class="svc-dur">${s.duration} min · ${s.desc}</div><div class="svc-price">$${s.price}</div>`;
     el.onclick = () => pickService(s, el);
     grid.appendChild(el);
   });
@@ -335,7 +334,9 @@ function renderCalendar() {
   for (let d=1;d<=days;d++) {
     const el=document.createElement('div'); el.className='cal-day'; el.textContent=d;
     const dt=new Date(calY,calM,d);
-    if (dt<new Date(today.toDateString())) { el.classList.add('disabled'); }
+    const dow=dt.getDay();
+    const isBookable=(dow===3||dow===0);
+    if (dt<new Date(today.toDateString())||!isBookable) { el.classList.add('disabled'); }
     else {
       if (dt.toDateString()===today.toDateString()) el.classList.add('today');
       const ds=toDS(calY,calM,d);
@@ -371,23 +372,21 @@ async function renderSlots() {
     const slots=await fetchSlots(state.date,state.duration);
     buildSlotGrid(slots,container);
   } catch(e) {
-    const isLocal = window.location.protocol === 'file:';
-    const msg = isLocal
-      ? 'Site must be hosted online — open from your GitHub Pages URL.'
-      : (e.message || 'Check your connection and try again.');
-    container.innerHTML = `<div class="slots-empty">${msg}</div>`;
+    const isLocal=window.location.protocol==='file:';
+    const msg=isLocal?'Open from your GitHub Pages URL, not a local file.':(e.message||'Check your connection and try again.');
+    container.innerHTML=`<div class="slots-empty">${msg}</div>`;
   }
 }
 
 async function fetchSlots(date,duration) {
   const url=`${SCRIPT_URL}?action=slots&date=${date}&duration=${duration}`;
-  const res = await fetch(url, { redirect: 'follow' });
-  if (!res.ok) throw new Error('Server error: ' + res.status);
-  const text = await res.text();
+  const res=await fetch(url,{redirect:'follow'});
+  if (!res.ok) throw new Error('Server error: '+res.status);
+  const text=await res.text();
   let data;
-  try { data = JSON.parse(text); } catch(e) { throw new Error('Bad response from server'); }
+  try { data=JSON.parse(text); } catch(e) { throw new Error('Bad response from server'); }
   if (data.error) throw new Error(data.error);
-  return data.slots || [];
+  return data.slots||[];
 }
 
 function buildSlotGrid(slots,container) {
@@ -420,7 +419,7 @@ function renderSummary() {
     <div class="sum-row"><span class="sum-key">Duration</span><span class="sum-val">${state.duration} min</span></div>
     ${state.date?`<div class="sum-row"><span class="sum-key">Date</span><span class="sum-val">${fmtDateLong(state.date)}</span></div>`:''}
     ${sd?`<div class="sum-row"><span class="sum-key">Time</span><span class="sum-val">${fmtTime(sd)} → ${fmtTime(ed)}</span></div>`:''}
-    <div class="sum-row sum-total"><span class="sum-key">Total</span><span class="sum-val">$${state.price}${state.service.includes('Design')?'+':''}</span></div>`;
+    <div class="sum-row sum-total"><span class="sum-key">Total</span><span class="sum-val">$${state.price}</span></div>`;
 }
 
 async function submitBooking() {
@@ -446,7 +445,7 @@ async function submitBooking() {
     document.getElementById('c-date').textContent=fmtDateLong(state.date);
     document.getElementById('c-time').textContent=`${fmtTime(sd)} → ${fmtTime(ed)}`;
     document.getElementById('c-dur').textContent=`${state.duration} minutes`;
-    document.getElementById('c-price').textContent=`$${state.price}${state.service.includes('Design')?'+':''}`;
+    document.getElementById('c-price').textContent=`$${state.price}`;
     goTo(4);
   } catch(err) { showToast('Network error — please try again','error'); btn.disabled=false; btn.textContent='Confirm Booking →'; }
 }
