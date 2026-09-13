@@ -161,7 +161,7 @@
     <div class="divider-line"></div>
     <div class="panel-tag">Step 2 of 4</div>
     <div class="panel-title">Date &amp; Time</div>
-    <div class="panel-sub">Wed 9AM–7PM · Sun 3PM–9PM · <span id="dur-label">—</span> session</div>
+    <div class="panel-sub">Mon/Tue/Thu/Fri 9AM–2:15PM · Wed 9AM–7PM · Sun 4PM–8PM · <span id="dur-label">—</span> session</div>
     <p style="font-size:12px;color:var(--gray);margin-top:-28px;margin-bottom:28px;font-style:italic;">Need a time that's not showing? DM me — <a href="https://instagram.com/ap.chopzz" target="_blank" style="color:var(--gold);text-decoration:none;">@ap.chopzz</a></p>
     <div class="date-time-grid">
       <div class="cal-block">
@@ -335,7 +335,7 @@ function renderCalendar() {
     const el=document.createElement('div'); el.className='cal-day'; el.textContent=d;
     const dt=new Date(calY,calM,d);
     const dow=dt.getDay();
-    const isBookable=(dow===3||dow===0);
+    const isBookable = (dow >= 0 && dow <= 5); // Sun–Fri, no Saturday
     if (dt<new Date(today.toDateString())||!isBookable) { el.classList.add('disabled'); }
     else {
       if (dt.toDateString()===today.toDateString()) el.classList.add('today');
